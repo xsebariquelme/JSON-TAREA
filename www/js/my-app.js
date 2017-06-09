@@ -25,56 +25,45 @@ function back(){
 function enviar(){
     var user = $('#user').val();
       localStorage.setItem('user',user);
-
-    if(user.length > 0 ){
+        
+        if(user.length>0){
         location.pathname="main.html";
+        myApp.showPreloader('Registrando...');
               $.ajax({
           dataType: 'json',
           type: 'POST',
             data: {
-              ayer: santayer,
-              hoy: santhoy,
-                maniana: santman,
-                dolar: dolar,
-                euro: euro,
-                uf: uf,
-                ipc: ipc,
-                utm: utm,
-                imacec: imacec,
-                normal: normal,
-                normal_maniana:normal_man,
-                catalitico: catalitico
-              
           },
+                  
           url: 'http://indicadoresdeldia.cl/webservice/indicadores.json',
           success: function (data, status, xhr) {
-              if(data.resp === true){
-                  localStorage.setItem('santayer',data.data.ayer);
-                  localStorage.setItem('santhoy',data.data.hoy);
-                  localStorage.setItem('santman',data.data.maniana);
-                  localStorage.setItem('dolar',data.data.dolar);
-                  localStorage.setItem('euro',data.data.euro);
-                  localStorage.setItem('uf',data.data.uf);
-                  localStorage.setItem('ipc',data.data.ipc);
-                  localStorage.setItem('utm',data.data.utm);
-                  localStorage.setItem('imacec',data.data.imacec);
-                  localStorage.setItem('normal',data.data.normal);
-                  localStorage.setItem('normal_man',data.data.normal_man);
-                  localStorage.setItem('catalitico',data.data.catalitico);
+              
+                  console.log("listo");
+                  localStorage.setItem('santayer',data.santoral.ayer);
+                  localStorage.setItem('santhoy',data.santoral.hoy);
+                  localStorage.setItem('santman',data.santoral.maniana);
+                  localStorage.setItem('dolar',data.moneda.dolar);
+                  localStorage.setItem('euro',data.moneda.euro);
+                  localStorage.setItem('uf',data.indicador.uf);
+                  localStorage.setItem('ipc',data.indicador.ipc);
+                  localStorage.setItem('utm',data.indicador.utm);
+                  localStorage.setItem('imacec',data.indicador.imacec);
+                  localStorage.setItem('normal',data.restriccion.normal);
+                  localStorage.setItem('normal_man',data.restriccion.normal_maniana);
+                  localStorage.setItem('catalitico',data.restriccion.catalitico);
                   myApp.hidePreloader();
                   window.location = "main.html";
-              }else{
-                  myApp.hidePreloader();var msg = data.info;
-                  myApp.alert(msg,'Error');;
-              }
+              
+              
           },
           error: function (xhr, status) {
               myApp.hidePreloader();
               myApp.alert('Datos Incorrectos2','Error');
           }
       });
-    }else{
-      myApp.alert('Debe Ingresar los datos solicitados','App JSON');
-    }
+        }else{
+             myApp.alert('Debe Ingresar los datos solicitados','App JSON');
+        }
+   
 }
 
