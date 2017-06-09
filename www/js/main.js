@@ -15,6 +15,7 @@ document.addEventListener('deviceready', function(){
     $('#santayer').html('<b> Santoral de ayer: ' + localStorage.getItem('santayer') + '</b>');
     $('#santhoy').html('<b>Santoral de hoy: ' + localStorage.getItem('santhoy') + '</b>');
     $('#santman').html('<b>Santoral de mañana: ' + localStorage.getItem('santman') + '</b>');
+    $('#saludo').html('<b>' + localStorage.getItem('saludo') + '</b>');
     $('#dolar').html('<b>Precio del dolar: ' + localStorage.getItem('dolar') + '</b>');
     $('#euro').html('<b>Precio del euro: ' + localStorage.getItem('euro') + '</b>');
     $('#uf').html('<b>Valor de la UF: ' + localStorage.getItem('uf') + '</b>');

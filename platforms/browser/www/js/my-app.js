@@ -27,8 +27,7 @@ function enviar(){
       localStorage.setItem('user',user);
         
         if(user.length>0){
-        location.pathname="main.html";
-        myApp.showPreloader('Registrando...');
+        myApp.showPreloader('Iniciando...');
               $.ajax({
           dataType: 'json',
           type: 'POST',
@@ -38,10 +37,24 @@ function enviar(){
           url: 'http://indicadoresdeldia.cl/webservice/indicadores.json',
           success: function (data, status, xhr) {
               
-                  console.log("listo");
                   localStorage.setItem('santayer',data.santoral.ayer);
                   localStorage.setItem('santhoy',data.santoral.hoy);
                   localStorage.setItem('santman',data.santoral.maniana);
+                if(user.toUpperCase()==data.santoral.hoy.toUpperCase()){
+                     localStorage.setItem('saludo','Felicidades por estar de Santo');
+                }else{
+                    if(user.toUpperCase()==data.santoral.ayer.toUpperCase()){
+                     localStorage.setItem('saludo','Felicidades por haber estado de Santo ayer');
+                }else{
+                    if(user.toUpperCase()==data.santoral.maniana.toUpperCase()){
+                     localStorage.setItem('saludo','Felicidades estarás de Santo mañana');
+                }else{
+                    localStorage.setItem('saludo', 'Tu nombre no coincide con los santos')
+                }
+                }
+                }
+              
+              
                   localStorage.setItem('dolar',data.moneda.dolar);
                   localStorage.setItem('euro',data.moneda.euro);
                   localStorage.setItem('uf',data.indicador.uf);
