@@ -1,0 +1,76 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "com.frozen.tareajson"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.frozen.tareajson"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.frozen.tareajson"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.frozen.tareajson"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "com.frozen.tareajson"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.frozen.tareajson"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "com.frozen.tareajson"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.frozen.tareajson"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.frozen.tareajson"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.frozen.tareajson"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.frozen.tareajson"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.frozen.tareajson"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "com.frozen.tareajson"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.frozen.tareajson"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.frozen.tareajson"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.frozen.tareajson"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "com.frozen.tareajson"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.frozen.tareajson"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.frozen.tareajson"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.frozen.tareajson"
+        }
+    }
+}
