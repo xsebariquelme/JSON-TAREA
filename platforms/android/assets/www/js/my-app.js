@@ -39,19 +39,19 @@ function enviar(){
                   
           url: 'http://indicadoresdeldia.cl/webservice/indicadores.json',
           success: function (data, status, xhr) {
-              
+                if(data.santoral!=null){
                   localStorage.setItem('santayer',data.santoral.ayer);
                   localStorage.setItem('santhoy',data.santoral.hoy);
                   localStorage.setItem('santman',data.santoral.maniana);
-                if(user.toUpperCase()==data.santoral.hoy.toUpperCase()){
+            if(data.santoral.hoy.toUpperCase().indexOf(user.toUpperCase())>=0){
                      localStorage.setItem('saludo','Felicidades por estar de Santo');
                         myApp.alert('Felicidades por estar de Santo', 'APP JSON');
                 }else{
-                    if(user.toUpperCase()==data.santoral.ayer.toUpperCase()){
+                    if(data.santoral.ayer.toUpperCase().indexOf(user.toUpperCase())>=0){
                      localStorage.setItem('saludo','Felicidades por haber estado de Santo ayer');
                         myApp.alert('Felicidades por haber estado de Santo ayer', 'APP JSON');
                 }else{
-                    if(user.toUpperCase()==data.santoral.maniana.toUpperCase()){
+                    if(data.santoral.maniana.toUpperCase().indexOf(user.toUpperCase())>=0){
                      localStorage.setItem('saludo','Felicidades estarás de Santo mañana');
                         myApp.alert('Felicidades estarás de Santo mañana','APP JSON');
                 }else{
@@ -59,28 +59,40 @@ function enviar(){
                 }
                 }
                 }
-                  if(data.moneda!=null){
- 
+                }else{
+                    localStorage.setItem('santayer',"Santoral no registrado");
+                  localStorage.setItem('santhoy',"Santoral no registrado");
+                  localStorage.setItem('santman',"Santoral no registrado");
+                    localStorage.setItem('saludo', "Santoral no registrado")
+                }
+                if(data.moneda!=null){
                  localStorage.setItem('dolar',data.moneda.dolar);
-
                   localStorage.setItem('euro',data.moneda.euro);
-				
-}
-else{
-		localStorage.setItem('dolar',"Precio no registrado");
-
+                }
+                else{
+		          localStorage.setItem('dolar',"Precio no registrado");
                   localStorage.setItem('euro',"Precio no registrado");
-	
-}
-				  
-
+                }
+                  if(data.indicador!=null){
                   localStorage.setItem('uf',data.indicador.uf);
                   localStorage.setItem('ipc',data.indicador.ipc);
                   localStorage.setItem('utm',data.indicador.utm);
                   localStorage.setItem('imacec',data.indicador.imacec);
+                  }else{
+                        localStorage.setItem('uf',"UF no registrado");
+                        localStorage.setItem('ipc',"IPC no registrado");
+                        localStorage.setItem('utm',"UTM no registrado");
+                        localStorage.setItem('imacec',"IMACEC no registrado");
+                  }
+                if(data.restriccion!=null){
                   localStorage.setItem('normal',data.restriccion.normal);
                   localStorage.setItem('normal_man',data.restriccion.normal_maniana);
                   localStorage.setItem('catalitico',data.restriccion.catalitico);
+                }else{
+                     localStorage.setItem('normal',"Restriccion no registrada");
+                  localStorage.setItem('normal_man',"Restriccion no registrada");
+                  localStorage.setItem('catalitico',"Restriccion no registrada");
+                }
                   myApp.hidePreloader();
                   window.location = "main.html";
               
@@ -98,14 +110,14 @@ else{
 }
 
 function msgsanto(){
-     if(localStorage.getItem('user').toUpperCase()==localStorage.getItem('santhoy').toUpperCase()){
+     if(localStorage.getItem('santhoy').toUpperCase().indexOf(localStorage.getItem('user').toUpperCase())>=0){
                         myApp.alert('Felicidades por estar de Santo', 'APP JSON');
-                }
-    if(localStorage.getItem('user').toUpperCase()==localStorage.getItem('santayer').toUpperCase()){
+     }
+    if(localStorage.getItem('santayer').toUpperCase().indexOf(localStorage.getItem('user').toUpperCase())>=0){
                         myApp.alert('Felicidades por haber estado de Santo ayer', 'APP JSON');
      }
-                    if(localStorage.getItem('user').toUpperCase()==localStorage.getItem('santman').toUpperCase()){
+    if(localStorage.getItem('santman').toUpperCase().indexOf(localStorage.getItem('user').toUpperCase())>=0){
                         myApp.alert('Felicidades estarás de Santo mañana','APP JSON');
-                }
-                }
+    } 
+}
                 
