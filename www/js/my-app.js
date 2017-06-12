@@ -45,15 +45,12 @@ function enviar(){
                   localStorage.setItem('santman',data.santoral.maniana);
             if(data.santoral.hoy.toUpperCase().indexOf(user.toUpperCase())>=0){
                      localStorage.setItem('saludo','Felicidades por estar de Santo');
-                        myApp.alert('Felicidades por estar de Santo', 'APP JSON');
                 }else{
                     if(data.santoral.ayer.toUpperCase().indexOf(user.toUpperCase())>=0){
                      localStorage.setItem('saludo','Felicidades por haber estado de Santo ayer');
-                        myApp.alert('Felicidades por haber estado de Santo ayer', 'APP JSON');
                 }else{
                     if(data.santoral.maniana.toUpperCase().indexOf(user.toUpperCase())>=0){
                      localStorage.setItem('saludo','Felicidades estarás de Santo mañana');
-                        myApp.alert('Felicidades estarás de Santo mañana','APP JSON');
                 }else{
                     localStorage.setItem('saludo', 'Tu nombre no coincide con los santos')
                 }
