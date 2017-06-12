@@ -59,8 +59,21 @@ function enviar(){
                 }
                 }
                 }
-                  localStorage.setItem('dolar',data.moneda.dolar);
+                  if(data.moneda!=null){
+ 
+                 localStorage.setItem('dolar',data.moneda.dolar);
+
                   localStorage.setItem('euro',data.moneda.euro);
+				
+}
+else{
+		localStorage.setItem('dolar',"Precio no registrado");
+
+                  localStorage.setItem('euro',"Precio no registrado");
+	
+}
+				  
+
                   localStorage.setItem('uf',data.indicador.uf);
                   localStorage.setItem('ipc',data.indicador.ipc);
                   localStorage.setItem('utm',data.indicador.utm);
